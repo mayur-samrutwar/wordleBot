@@ -12,7 +12,7 @@ const bot = new TelegramBot(token, { polling: true });
 // Handle the /start command
 bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
-  const welcomeMessage = "Welcome to the Wordle game! Are you ready to play?";
+  const welcomeMessage = "Welcome to the Wordle game! Are you ready to play? \n Click the \*\*Play Wordle\*\* button to start playing!";
   
   // Create an inline keyboard with a button
   const keyboard = {
@@ -22,10 +22,10 @@ bot.onText(/\/start/, (msg) => {
   };
 
   // Send the welcome message with the inline keyboard
-  bot.sendMessage(chatId, welcomeMessage, {
-    reply_markup: JSON.stringify(keyboard)
-  });
+  bot.sendMessage(chatId, welcomeMessage);
+//   bot.sendMessage(chatId, welcomeMessage, {
+//     reply_markup: JSON.stringify(keyboard)
+//   });
 });
-
 // Start the bot
 console.log('Bot is running...');
